@@ -51,15 +51,20 @@ class StockCheck():
 
 stock = StockCheck('TSLA')
 notification = NotificationManager()
-
 message = stock.get_news()
-notification.send_emails(message)
-# print(stock.percentage_change())
 
 
-# change to 5% before submitting final code
-# if -.05 <= stock.percentage_change() >= .05 :
-#     pass
+up_down = None
+if stock.percentage_change() > 0:
+    up_down = "🔺"
+else:
+    up_down = "🔻"
+
+# Send the messages if these was a 5% increase or decrease in price of stock
+if -5 <= stock.percentage_change() >= 5:
+    notification.send_emails(message, up_down)
+    notification.send_sms(message, up_down)
+
 
 #TODO Fix the api key read documentation try x-api key
 
