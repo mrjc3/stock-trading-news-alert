@@ -66,7 +66,7 @@ if -5 <= stock.percentage_change() >= 5:
     notification.send_sms(message, up_down)
 
 
-#TODO Fix the api key read documentation try x-api key
+
 
 
 
